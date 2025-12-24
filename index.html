@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Gogo 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* No scroll */
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #fff6e5);
+  color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hide all screens initially */
+.screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Show only the active screen */
+.screen.active {
+  display: flex;
+}
+
+/* Element styles */
+input {
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  margin: 10px 0;
+}
+
+button {
+  background: #ff5c8a;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+img {
+  width: 90%;
+  max-width: 300px;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.typing {
+  color: #ff6f91;
+  font-size: 1.2rem;
+  min-height: 30px;
+}
+
+/* Final screen */
+.final-message {
+  font-size: 1.1rem;
+  color: #ff5c8a;
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Password Screen -->
+<div id="lockScreen" class="screen active">
+  <h2>🔒 Only Gogo can enter 💗</h2>
+  <input type="password" id="pass" placeholder="Enter password">
+  <button onclick="unlock()">Unlock</button>
+  <p style="font-size:0.9rem;color:#777;">Hint: MeraRamalai</p>
+</div>
+
+<!-- Apology Message Screen -->
+<div id="apologyScreen" class="screen">
+  <h1>Baby Mera Bacha…</h1>
+  <p>... I love you so much. Meko pata hai maine jo ye do din kiya wo bilkul sahi nhi tha and I promise baby wapis kabhi bhi nhi krungi jaan. I really love you na, Gogo.</p>
+  <button onclick="showThankYou()">Next 💗</button>
+</div>
+
+<!-- Final Thank-You Screen -->
+<div id="finalScreen" class="screen">
+  <h1>Thank you for forgiving me 💗</h1>
+  <p class="final-message">
+    I promise to value this chance and take better care of us 🫶
+  </p>
+  <p style="font-size:0.95rem;color:#777;">
+    <i>The day we chose us</i><br>
+    2nd April 2025
+  </p>
+  <button onclick="closePage()">Close 🌸</button>
+</div>
+
+<script>
+/* Show a specific screen and hide others */
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+
+/* Unlock the first screen */
+function unlock() {
+  if (document.getElementById("pass").value === "MeraRamalai") {
+    showScreen("apologyScreen");
+  } else {
+    alert("Wrong password 😔 Only Gogo knows it");
+  }
+}
+
+/* Move to the Thank You screen */
+function showThankYou() {
+  showScreen("finalScreen");
+}
+
+/* Close button action (or just a friendly close message) */
+function closePage() {
+  alert("You can now close this page. Thank you for understanding!");
+}
+</script>
+
+</body>
+</html>
